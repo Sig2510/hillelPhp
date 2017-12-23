@@ -13,18 +13,19 @@
     <div class="container">
       <div class="row justify-content-md-center">
         <div class="col-md-10">
-            <a href="/"><h1>Hello, user!</h1></a>
-            <h2>You are reading '<?php echo $post['title']?>'</h2>
+            <h2>You are reading '<?php echo $post[0]?>'</h2>
         </div>
             <div class="col-md-10">
               <div class="jumbotron jumbotron-fluid">
                 <div class="container">
-                    <h1 class="display-3"><?php echo $post['title']; ?></h1>
-                  </a>
-                  <p class="lead"><?php echo $post['body']; ?></p>
-                  <p class="lead">author: <?php echo $post['author']; ?></p>
+                    <h1 class="display-3"><?php echo $post[0]; ?></h1>
+                  <p class="lead"><?php echo $post[1]; ?></p>
+                  <p class="lead">author: <?php echo $post[2]; ?></p>
                 </div>
               </div>
+            </div>
+            <div class="col-md-10">
+                <a href="/"><h1>Home page!</h1></a>
             </div>
       </div>
     </div>

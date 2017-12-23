@@ -5,6 +5,9 @@
     header('location /');
   }
 
-  $post = post($_GET['id']);
-
-  require_once "/view/post.php";
+  $post = post(posts());
+  if($post != null){
+    require_once "/view/post.php";
+  } else {
+    require('view/404.php');
+  }

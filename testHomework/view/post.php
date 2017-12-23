@@ -12,22 +12,20 @@
   <body>
     <div class="container">
       <div class="row justify-content-md-center">
-        <div class="col-md-center">
-            <a href="/"><h1>Hello, user! This is my first site!</h1></a>
+        <div class="col-md-10">
+            <a href="/"><h1>Hello, user!</h1></a>
+            <h2>You are reading '<?php echo $post[0]?>'</h2>
         </div>
-          <?php foreach ($posts as $index => $post) { ?>
             <div class="col-md-10">
               <div class="jumbotron jumbotron-fluid">
                 <div class="container">
-                  <a href="/post.php?id=<?php echo $index?>">
-                    <h1 class="display-3"><?php echo $post[0].' '.($index+1); ?></h1>
+                    <h1 class="display-3"><?php echo $post[0]; ?></h1>
                   </a>
                   <p class="lead"><?php echo $post[1]; ?></p>
                   <p class="lead">author: <?php echo $post[2]; ?></p>
                 </div>
               </div>
             </div>
-          <?php } ?>
       </div>
     </div>
   </body>
