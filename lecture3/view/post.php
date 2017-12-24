@@ -28,7 +28,7 @@
                 <div class="container">
                   <h1 class="display-3"><?php echo $post[0]; ?></h1>
                   <div class="font-italic">
-                    <p class="text-justify"><?php echo $post[1]; ?></p>
+                    <p class="text-justify"; style="text-indent: 25px"><?php echo $post[1]; ?></p>
                   </div>
                   <div class="font-weight-bold">
                     <p class="text-sm-right">author: <?php echo $post[2]; ?></p>

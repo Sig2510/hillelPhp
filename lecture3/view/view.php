@@ -25,9 +25,7 @@
             <div class="col-md-10">
               <div class="jumbotron jumbotron-fluid">
                 <div class="container">
-
-                    <h1 class="display-3"><?php echo $post[0].' '.($index+1); ?></h1>
-
+                  <h1 class="display-3"><?php echo $post[0].' '.($index+1); ?></h1>
                   <p class="lead"><?php echo substr($post[1], 0, 97).'...'; ?></p>
                   <p class="lead"><i>author: <?php echo $post[2]; ?></i></p>
                   <a href="/post.php?id=<?php echo $index?>">
