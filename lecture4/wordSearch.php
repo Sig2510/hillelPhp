@@ -1,5 +1,4 @@
 <?php
-  //error_reporting( E_ERROR );
 
   class Board {
     private $board = [
@@ -44,6 +43,37 @@
       return $countLetters;
     }
 
+    private function checkPosition($x, $y){
+      $boardXsize = count($this->board)-1;
+      $boardYsize = count($this->board[$x])-1;
+
+      if($x == 0){
+        if($y == 0){
+          return 1;
+        }else if($y == $boardYsize){
+          return 2;
+        } else {
+          return 3;
+        }
+      } else if ($x == $boardXsize) {
+        if($y == 0){
+          return 4;
+        } else if($y == $boardYsize) {
+          return 5;
+        } else{
+          return 6;
+        }
+      } else {
+        if($y == 0){
+          return 7;
+        } else if($y == $boardYsize){
+          return 8;
+        } else {
+          return 9;
+        }
+      }
+    }
+
     public function searchWord($word) {
       $this->searchWord = str_split($word);
       if (!$this->setStart($this->searchWord[0])) {
@@ -70,21 +100,106 @@
       }
 
       $letter = array_shift($this->searchWord);
-
-      if ($this->board[$x+1][$y] == $letter) {
-        $this->x[$this->cursor] += 1;
-        $this->board[$x][$y] = null;
-      } elseif ($this->board[$x-1][$y] == $letter) {
-        $this->x[$this->cursor] -= 1;
-        $this->board[$x][$y] = null;
-      } elseif ($this->board[$x][$y+1] == $letter) {
-        $this->y[$this->cursor] += 1;
-        $this->board[$x][$y] = null;
-      } elseif ($this->board[$x][$y-1] == $letter) {
-        $this->y[$this->cursor] -= 1;
-        $this->board[$x][$y] = null;
-      } else {
-        return false;
+      switch ($this->checkPosition($x, $y)) {
+        case 1:
+          if ($this->board[$x+1][$y] == $letter) {
+            $this->x[$this->cursor] += 1;
+            $this->board[$x][$y] = null;
+          } elseif ($this->board[$x][$y+1] == $letter) {
+            $this->y[$this->cursor] += 1;
+            $this->board[$x][$y] = null;
+          } else return false;
+          break;
+        case 2:
+          if ($this->board[$x+1][$y] == $letter) {
+            $this->x[$this->cursor] += 1;
+            $this->board[$x][$y] = null;
+          } elseif ($this->board[$x][$y-1] == $letter) {
+            $this->y[$this->cursor] -= 1;
+            $this->board[$x][$y] = null;
+          } else return false;
+          break;
+        case 3:
+          if ($this->board[$x+1][$y] == $letter) {
+            $this->x[$this->cursor] += 1;
+            $this->board[$x][$y] = null;
+          } elseif ($this->board[$x][$y-1] == $letter) {
+            $this->y[$this->cursor] -= 1;
+            $this->board[$x][$y] = null;
+          } elseif ($this->board[$x][$y+1] == $letter) {
+            $this->y[$this->cursor] += 1;
+            $this->board[$x][$y] = null;
+          } else return false;
+          break;
+        case 4:
+            if ($this->board[$x-1][$y] == $letter) {
+              $this->x[$this->cursor] -= 1;
+              $this->board[$x][$y] = null;
+            } elseif ($this->board[$x][$y+1] == $letter) {
+              $this->y[$this->cursor] += 1;
+              $this->board[$x][$y] = null;
+            } else return false;
+            break;
+        case 5:
+          if ($this->board[$x-1][$y] == $letter) {
+            $this->x[$this->cursor] -= 1;
+            $this->board[$x][$y] = null;
+          } elseif ($this->board[$x][$y-1] == $letter) {
+            $this->y[$this->cursor] -= 1;
+            $this->board[$x][$y] = null;
+          } else return false;
+          break;
+        case 6:
+          if ($this->board[$x-1][$y] == $letter) {
+            $this->x[$this->cursor] -= 1;
+            $this->board[$x][$y] = null;
+          } elseif ($this->board[$x][$y-1] == $letter) {
+            $this->y[$this->cursor] -= 1;
+            $this->board[$x][$y] = null;
+          } elseif ($this->board[$x][$y+1] == $letter) {
+            $this->y[$this->cursor] += 1;
+            $this->board[$x][$y] = null;
+          } else return false;
+          break;
+        case 7:
+          if ($this->board[$x-1][$y] == $letter) {
+            $this->x[$this->cursor] -= 1;
+            $this->board[$x][$y] = null;
+          } elseif ($this->board[$x][$y+1] == $letter) {
+            $this->y[$this->cursor] += 1;
+            $this->board[$x][$y] = null;
+          } elseif ($this->board[$x+1][$y] == $letter) {
+            $this->x[$this->cursor] += 1;
+            $this->board[$x][$y] = null;
+          } else return false;
+          break;
+        case 8:
+          if ($this->board[$x-1][$y] == $letter) {
+            $this->x[$this->cursor] -= 1;
+            $this->board[$x][$y] = null;
+          } elseif ($this->board[$x][$y-1] == $letter) {
+            $this->y[$this->cursor] -= 1;
+            $this->board[$x][$y] = null;
+          } elseif ($this->board[$x+1][$y] == $letter) {
+            $this->x[$this->cursor] += 1;
+            $this->board[$x][$y] = null;
+          } else return false;
+          break;
+        case 9:
+          if ($this->board[$x-1][$y] == $letter) {
+            $this->x[$this->cursor] -= 1;
+            $this->board[$x][$y] = null;
+          } elseif ($this->board[$x][$y+1] == $letter) {
+            $this->y[$this->cursor] += 1;
+            $this->board[$x][$y] = null;
+          } elseif ($this->board[$x+1][$y] == $letter) {
+            $this->x[$this->cursor] += 1;
+            $this->board[$x][$y] = null;
+          } elseif ($this->board[$x][$y-1] == $letter) {
+            $this->y[$this->cursor] -= 1;
+            $this->board[$x][$y] = null;
+          } else return false;
+          break;
       }
 
       return $this->searchLocalWord($this->x[$this->cursor], $this->y[$this->cursor]);
@@ -110,5 +225,4 @@
 
   $b = new Board();
 
-  var_dump($b->searchWord('dklm'));
-  var_dump($b);
+  var_dump($b->searchWord('abcdmlkdmfbs'));
