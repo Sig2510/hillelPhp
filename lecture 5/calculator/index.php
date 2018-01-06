@@ -12,8 +12,4 @@
   $router->attach('mainPage', new MainPage());
   $router->attach('resultPage', new ResultPage());
 
-  $router->loadHomePage();
-
-  if(count($_POST) !== 0){
-    $router->queryProcess();
-  }
+  $router->queryProcess();
