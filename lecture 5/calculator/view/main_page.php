@@ -10,7 +10,9 @@
       <div class="text-center">
         <div class="pt-5">
          <div class="container">
-          <h1 class="display-3">Welcome!It's my "Calculator"!</h1>
+          <a href="/">
+            <h1 class="display-3">Welcome!It's my "Calculator"!</h1>
+          </a>
             <p class="lead">
               Please, enter numbers, wich you want to calculate!
             </p>
@@ -51,9 +53,7 @@
               </div>
             </div>
             <div class="text-center">
-              <a href="/view/result_page.php">
                 <button type="submit" class="btn btn-primary">CALCULATE</button>
-              </a>
             </div>
           </form>
         </div>

@@ -10,7 +10,7 @@
 
     public function checkData(){
       if(!is_numeric($this->number_one) || !is_numeric($this->number_two)) {
-        return "Please, enter correct Numbers!";
+        return false;
       } else {
         return true;
       }

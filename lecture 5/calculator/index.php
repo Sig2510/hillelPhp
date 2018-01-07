@@ -6,10 +6,12 @@
   require_once './actions/page.php';
   require_once './actions/main_page.php';
   require_once './actions/result_page.php';
+  require_once './actions/error_page.php';
 
-  $router = new Router($_POST);
+  $router = new Router($_POST, $_GET);
 
   $router->attach('mainPage', new MainPage());
   $router->attach('resultPage', new ResultPage());
+  $router->attach('errorPage', new ErrorPAge());
 
   $router->queryProcess();
