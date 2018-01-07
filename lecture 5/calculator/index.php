@@ -12,6 +12,6 @@
 
   $router->attach('mainPage', new MainPage());
   $router->attach('resultPage', new ResultPage());
-  $router->attach('errorPage', new ErrorPAge());
+  $router->attach('errorPage', new ErrorPage());
 
   $router->queryProcess();

@@ -53,7 +53,9 @@
               </div>
             </div>
             <div class="text-center">
+              <a href="/index.php?o=result">
                 <button type="submit" class="btn btn-primary">CALCULATE</button>
+              </a>
             </div>
           </form>
         </div>

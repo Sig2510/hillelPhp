@@ -1,16 +1,20 @@
 <?php
   class Router {
     private $dataArray = [];
-    private $urlArray= [];
+    private $urlArray = [];
     private $actionArray = [];
 
-    public function __construct($dataArray, $utlArray) {
+    public function __construct($dataArray, $urlArray) {
       $this->dataArray = $dataArray;
-      $this->utlArray = $utlArray;
+      $this->urlArray = $urlArray;
     }
 
     public function attach($actionName, $action) {
       $this->actionArray[$actionName] = $action;
+    }
+
+    private function createPath($path) {
+      
     }
 
     public function queryProcess() {
@@ -40,7 +44,7 @@
               break;
 
             default:
-              header('location: /index.php?r=/');
+              header('location: /index.php?');
               break;
           }
         }

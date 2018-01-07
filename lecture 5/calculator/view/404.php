@@ -15,7 +15,7 @@
               <div class="container">
                 <h1 class="display-3">Sorry, page was not found!</h1>
                 <div class="text-center">
-                  <h1><a class="btn btn-primary" href="/" role="button">Homepage</a></h1>
+                  <h1><a class="btn btn-primary" href="/index.php?" role="button">Homepage</a></h1>
                 </div>
               </div>
             </div>

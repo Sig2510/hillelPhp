@@ -14,7 +14,7 @@
           </div>
         </div>
         <div class="class=col-md-3 text-center">
-          <h1><a class="btn btn-primary" href="/" role="button">Homepage</a></h1>
+          <h1><a class="btn btn-primary" href="/index.php?" role="button">Homepage</a></h1>
         </div>
       </div>
   </body>
