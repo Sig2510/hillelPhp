@@ -1,5 +1,6 @@
 <?php
   require_once './model/calculator.php';
+  require_once './model/validator.php';
 
   require_once './router.php';
 

@@ -23,7 +23,7 @@
         </div>
       </div>
         <div class="container">
-          <form action="" method="post">
+          <form action="/index.php?r=/result" method="post">
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="inputNum1">Input first number in field below!</label>
@@ -53,9 +53,7 @@
               </div>
             </div>
             <div class="text-center">
-              <a href="/index.php?o=result">
                 <button type="submit" class="btn btn-primary">CALCULATE</button>
-              </a>
             </div>
           </form>
         </div>

@@ -1,5 +1,7 @@
 <?php
   class Router {
+    const ROUTE_KEY = 'r';
+
     private $dataArray = [];
     private $urlArray = [];
     private $actionArray = [];
@@ -13,38 +15,29 @@
       $this->actionArray[$actionName] = $action;
     }
 
-    private function createPath($path) {
-      
-    }
-
     public function queryProcess() {
       if(count($this->dataArray) !== 0){
-        $calc = new MyCalculator($this->dataArray['num1'], $this->dataArray['num2']);
+        $valid = new MyValidator();
+        $t_num1 = $this->dataArray['num1'];
+        $t_num2 = $this->dataArray['num2'];
+        $t_oper = $this->dataArray['operations'];
 
-        if(!$calc->checkData()){
+        if(!$valid->checkData($t_num1, $t_num2)) {
           $this->actionArray['mainPage']->process();
           $this->actionArray['errorPage']->process();
         } else {
-          switch ($this->dataArray['operations']) {
+          switch ($this->urlArray[self::ROUTE_KEY]) {
 
-            case 'add':
-              $this->actionArray['resultPage']->process($calc->myAdd());
+            case '/':
+              $this->actionArray['mainPage']->process();
               break;
 
-            case 'subtract':
-              $this->actionArray['resultPage']->process($calc->mySub());
-              break;
-
-            case 'multiply':
-              $this->actionArray['resultPage']->process($calc->myMulti());
-              break;
-
-            case 'divide':
-              $this->actionArray['resultPage']->process($calc->myDiv());
+            case '/result':
+              $this->actionArray['resultPage']->process($t_num1, $t_num2, $t_oper);
               break;
 
             default:
-              header('location: /index.php?');
+              header('location: /index.php?r=/');
               break;
           }
         }

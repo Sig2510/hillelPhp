@@ -11,7 +11,7 @@
         <div class="pt-5">
          <div class="container col-md-3">
           <div class="alert alert-danger" role="alert">
-            Please, enter correct numbers!
+            <?php echo $error; ?>
           </div>
           </div>
         </div>
