@@ -7,7 +7,6 @@
     }
 
     protected function post() {
-      var_dump($this->postData);
       $this->postModel->deletePost($this->postData['id']);
       require_once './view/deleted_post_page.php';
     }
