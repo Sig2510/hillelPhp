@@ -107,4 +107,10 @@
       $authors = $this->conn->query('SELECT author, COUNT(author) as posts_count FROM posts GROUP BY author');
       return $authors->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getAvgStat() {
+      $avg = $this->conn->query('SELECT AVG(a_count) as a_vg FROM (SELECT COUNT(author)
+                                 as a_count FROM posts GROUP BY author) X');
+      return $avg->fetchAll(PDO::FETCH_ASSOC);
+    }
   }

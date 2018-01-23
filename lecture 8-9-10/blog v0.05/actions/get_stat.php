@@ -8,6 +8,7 @@
 
     protected function get() {
       $stat = $this->postModel->getStat();
+      $avg = $this->postModel->getAvgStat();
       if (isset($stat)) {
         require_once './view/stat.php';
       } else {

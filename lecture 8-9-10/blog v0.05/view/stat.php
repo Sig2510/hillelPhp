@@ -42,7 +42,7 @@
                   </tbody>
                 </table>
                 <div class="class=col-md-3 text-center">
-                  <h1 class="display-3">Average posts: <?php ?></h1>
+                  <h1 class="display-3">Average posts: <?php echo $avg[0]['a_vg']; ?></h1>
                 </div>
               </div>
               <div class="class=col-md-3 text-center">
